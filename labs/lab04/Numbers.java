@@ -10,7 +10,7 @@ public class Numbers {
     this.id = Numbers.nextAvailableNumber++;
   }
   public static Numbers singleton = null;
-  public static Numbers makeInstance() { // al
+  public synchronized static Numbers makeInstance() { // hangman (critical region)
     if (Numbers.singleton == null)
       Numbers.singleton = new Numbers();
     return Numbers.singleton;
